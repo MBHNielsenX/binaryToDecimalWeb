@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Binary To Decimal</title>
+    <script>
+        function bnaryToDecimal()
+        {
+            let inputValue = document.getElementById("user-input").value;
+            if (typeof inputValue === String)
+            {
+                alert("Please only type in numbers")
+            } else {
+                calculate(inputValue);
+            }
+
+        }
+        function calculate(number)
+        {
+            let decimalNumber = 0;
+            let p = 0;
+            while(true) {
+                if (number === 0) {
+                    break;
+                } else {
+                    let temp = Math.round(number%10);
+                    decimalNumber += Math.round(temp*Math.pow(2,p));
+                    number = Math.round(number/10);
+                    p++;
+                }
+            }
+            alert(number + " --> " + decimalNumber);
+        }
+    </script>
+
+</head>
+<body>
+
+    <h1>Welcome to the binary to decimal calculator</h1>
+    <br>
+    <p>Please type in the binary number you want to convert to decimal</p>
+    <input id="user-input">
+    <br>
+    <button onclick="bnaryToDecimal()" id="calculate-button">Calculate</button>
+</body>
+</html>
